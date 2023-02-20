@@ -38,9 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-    
-      backgroundColor: const Color(0xffF5F5F5),
+      backgroundColor: whiteSecondary,
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(

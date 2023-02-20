@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:operator_app/constant/color.dart';
 import 'package:operator_app/constant/style.dart';
 
 class TableList extends StatelessWidget {
@@ -26,7 +27,7 @@ class TableList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                   color: index == 0 && rowBgColor == true
                       ? const Color(0xff6B68F3).withOpacity(0.33)
-                      : const Color(0xffF5F5F5)),
+                      : whiteSecondary),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,9 +79,8 @@ class TableList extends StatelessWidget {
                           _operatorData[index]['Working Status'] == true
                               ? "Operating"
                               : 'Not Operating',
-                              textAlign: TextAlign.center,
-                          style: contentStyle.copyWith(
-                              color: const Color(0xffF8F8F8)),
+                          textAlign: TextAlign.center,
+                          style: contentStyle.copyWith(color: whitePrimary),
                         ),
                       ),
                     ),

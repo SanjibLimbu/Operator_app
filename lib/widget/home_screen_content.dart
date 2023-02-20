@@ -69,7 +69,7 @@ class HomeScreenContent extends StatelessWidget {
                       style: contentStyle.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: const Color(0xffF8F8F8),
+                        color: whitePrimary,
                       ),
                     ),
                   ),
