@@ -14,7 +14,7 @@ class OperatorApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto'),
 
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

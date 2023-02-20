@@ -12,3 +12,9 @@ const contentStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: textSecondary,
 );
+
+const tablePadding = EdgeInsets.only(
+  top: 8,
+  left: 15,
+  right: 2,
+);
