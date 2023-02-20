@@ -11,6 +11,7 @@ class ProfileWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 17,
+        vertical: 40
       ),
       child: ListTile(
         horizontalTitleGap: 10,
@@ -49,7 +50,7 @@ class ProfileWidget extends StatelessWidget {
           children: [
             Image.asset(
               'images/notification.png',
-              color: const Color(0xff363263),
+              color: btnColor,
             ),
             Positioned(
                 top: -12,
@@ -58,7 +59,7 @@ class ProfileWidget extends StatelessWidget {
                   width: 15,
                   height: 15,
                   decoration: const BoxDecoration(
-                      color: Color(0xff363263),
+                      color: btnColor,
                       shape: BoxShape.circle),
                   child: const Center(
                     child: Text(

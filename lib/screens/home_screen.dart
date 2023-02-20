@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:operator_app/constant/color.dart';
 import 'package:operator_app/constant/style.dart';
+
 import 'package:operator_app/userData/operator_data.dart';
-import 'package:operator_app/widget/profile.dart';
-import 'package:operator_app/widget/table_list.dart';
-import 'package:operator_app/widget/table_widget.dart';
+import 'package:operator_app/widget/home_screen_content.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,84 +13,92 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late List _operatorData;
   @override
   void initState() {
     _operatorData = OperatorData().getOperatorData();
+
+    
     super.initState();
+  }
+
+  late List _operatorData;
+  int _selectedIndex = 0;
+  late final List<Widget> _widgetOptions = <Widget>[
+    HomeScreenContent(operatorData: _operatorData),
+    HomeScreenContent(operatorData: _operatorData),
+    HomeScreenContent(operatorData: _operatorData),
+    HomeScreenContent(operatorData: _operatorData),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+    
       backgroundColor: const Color(0xffF5F5F5),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 14),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const ProfileWidget(),
-              const SizedBox(
-                height: 40,
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(8.0),
+          topRight: Radius.circular(8.0),
+        ),
+        child: Container(
+          color: btnColor,
+          padding: const EdgeInsets.symmetric(horizontal: 29),
+          child: BottomNavigationBar(
+            elevation: 0,
+            backgroundColor: btnColor,
+            // showSelectedLabels: true,
+            // showUnselectedLabels: true,
+            selectedFontSize: 12,
+            unselectedFontSize: 12,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: const Color(0xffFBFBFB).withOpacity(0.44),
+            selectedLabelStyle: contentStyle.copyWith(fontSize: 12),
+            iconSize: 21,
+            type: BottomNavigationBarType.fixed,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(
+                    'images/home.png',
+                  ),
+                ),
+                label: 'Home',
               ),
-              const Text(
-                'Table List',
-                style: TextStyle(
-                    fontSize: 10,
-                    color: Color(0xff484343),
-                    fontWeight: FontWeight.normal),
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(
+                    'images/tick.png',
+                  ),
+                ),
+                label: 'Task',
               ),
-              const SizedBox(
-                height: 3,
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(
+                    'images/pajamas_status.png',
+                  ),
+                ),
+                label: 'Status',
               ),
-              TableWidget(operatorData: _operatorData),
-              const SizedBox(
-                height: 10,
-              ),
-              TableListNoHeader(operatorData: _operatorData),
-              const SizedBox(
-                height: 10,
-              ),
-              TableListNoHeader(operatorData: _operatorData),
-              const SizedBox(
-                height: 10,
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(
+                    'images/tick.png',
+                  ),
+                ),
+                label: 'Profile',
               ),
             ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class TableListNoHeader extends StatelessWidget {
-  const TableListNoHeader({
-    super.key,
-    required List operatorData,
-  }) : _operatorData = operatorData;
-
-  final List _operatorData;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color(
-            0xffF0DEDE,
-          ),
-        ),
-      ),
-      child: Padding(
-        padding: tablePadding,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 5,
-            ),
-            TableList(operatorData: _operatorData)
-          ],
         ),
       ),
     );

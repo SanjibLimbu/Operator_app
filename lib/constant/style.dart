@@ -15,6 +15,6 @@ const contentStyle = TextStyle(
 
 const tablePadding = EdgeInsets.only(
   top: 8,
-  left: 15,
-  right: 2,
+  left: 8,
+  right: 8,
 );

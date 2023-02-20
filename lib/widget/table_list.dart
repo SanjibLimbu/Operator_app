@@ -5,9 +5,11 @@ class TableList extends StatelessWidget {
   const TableList({
     super.key,
     required List operatorData,
+    this.rowBgColor = false,
   }) : _operatorData = operatorData;
 
   final List _operatorData;
+  final bool rowBgColor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,65 +24,61 @@ class TableList extends StatelessWidget {
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: index == 0
-                      ? const Color(0xff6B68F3)
-                          .withOpacity(0.33)
+                  color: index == 0 && rowBgColor == true
+                      ? const Color(0xff6B68F3).withOpacity(0.33)
                       : const Color(0xffF5F5F5)),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    flex: 1,
+                    flex: 2,
                     child: Text(
                       _operatorData[index]['S.n'],
-                      // textAlign: TextAlign.center,
                       style: contentStyle,
                     ),
                   ),
                   Expanded(
-                    flex: 6,
+                    flex: 7,
                     child: Text(
                       _operatorData[index]['Name'],
-                      textAlign: TextAlign.center,
                       style: contentStyle,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Text(
-                      _operatorData[index]['Address'],
                       textAlign: TextAlign.center,
-                      style: contentStyle,
                     ),
                   ),
                   Expanded(
                     flex: 5,
                     child: Center(
+                      child: Text(
+                        _operatorData[index]['Address'],
+                        style: contentStyle,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: Center(
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          tapTargetSize: MaterialTapTargetSize
-                              .shrinkWrap,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           padding: EdgeInsets.zero,
                           minimumSize: const Size(80, 20),
                           maximumSize: const Size(80, 20),
                           elevation: 0,
                           shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(8)),
-                          backgroundColor: _operatorData[
-                                          index]
-                                      ['Working Status'] ==
-                                  true
-                              ? Colors.green
-                              : Colors.red,
+                              borderRadius: BorderRadius.circular(8)),
+                          backgroundColor:
+                              _operatorData[index]['Working Status'] == true
+                                  ? Colors.green
+                                  : Colors.red,
                         ),
                         child: Text(
-                          _operatorData[index]
-                                      ['Working Status'] ==
-                                  true
+                          _operatorData[index]['Working Status'] == true
                               ? "Operating"
                               : 'Not Operating',
-                          textAlign: TextAlign.center,
+                              textAlign: TextAlign.center,
                           style: contentStyle.copyWith(
                               color: const Color(0xffF8F8F8)),
                         ),

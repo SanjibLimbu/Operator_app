@@ -22,25 +22,21 @@ class TableWidget extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(
-          top: 8,
-          left: 15,
-          right: 2,
-        ),
+        padding: tablePadding,
         child: Column(
           children: [
             Row(
               children: const [
                 Expanded(
-                  flex: 1,
+                  flex: 2,
                   child: Text(
                     'S.n.',
-                    // textAlign: TextAlign.center,
+                   
                     style: headingStyle,
                   ),
                 ),
                 Expanded(
-                  flex: 6,
+                  flex: 7,
                   child: Text(
                     'Name',
                     textAlign: TextAlign.center,
@@ -48,7 +44,7 @@ class TableWidget extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 5,
                   child: Text(
                     'Address',
                     textAlign: TextAlign.center,
@@ -56,7 +52,7 @@ class TableWidget extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 5,
+                  flex: 6,
                   child: Text(
                     'Working Status',
                     textAlign: TextAlign.center,
@@ -68,7 +64,10 @@ class TableWidget extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            TableList(operatorData: _operatorData)
+            TableList(
+              operatorData: _operatorData,
+              rowBgColor: true,
+            )
           ],
         ),
       ),
