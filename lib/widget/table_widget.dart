@@ -26,12 +26,12 @@ class TableWidget extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Expanded(
                   flex: 2,
                   child: Text(
                     'S.n.',
-                   
                     style: headingStyle,
                   ),
                 ),
@@ -39,7 +39,7 @@ class TableWidget extends StatelessWidget {
                   flex: 7,
                   child: Text(
                     'Name',
-                    textAlign: TextAlign.center,
+                    textAlign: textCenter,
                     style: headingStyle,
                   ),
                 ),
@@ -47,7 +47,7 @@ class TableWidget extends StatelessWidget {
                   flex: 5,
                   child: Text(
                     'Address',
-                    textAlign: TextAlign.center,
+                    textAlign: textCenter,
                     style: headingStyle,
                   ),
                 ),
@@ -55,7 +55,7 @@ class TableWidget extends StatelessWidget {
                   flex: 6,
                   child: Text(
                     'Working Status',
-                    textAlign: TextAlign.center,
+                    textAlign: textCenter,
                     style: headingStyle,
                   ),
                 ),

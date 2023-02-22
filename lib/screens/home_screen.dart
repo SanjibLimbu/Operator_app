@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _operatorData = OperatorData().getOperatorData();
 
-    
     super.initState();
   }
 
@@ -40,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: whiteSecondary,
       body: _widgetOptions.elementAt(_selectedIndex),
+
+      //bottom nav bar
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(8.0),
@@ -51,8 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BottomNavigationBar(
             elevation: 0,
             backgroundColor: btnColor,
-            // showSelectedLabels: true,
-            // showUnselectedLabels: true,
             selectedFontSize: 12,
             unselectedFontSize: 12,
             selectedItemColor: Colors.white,

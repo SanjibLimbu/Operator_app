@@ -64,7 +64,7 @@ class HomeScreenContent extends StatelessWidget {
                         ),
                         backgroundColor: btnColor),
                     child: Text(
-                      'Exploer Here',
+                      'Explore Here',
                       textAlign: TextAlign.center,
                       style: contentStyle.copyWith(
                         fontSize: 12,

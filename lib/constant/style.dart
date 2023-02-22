@@ -18,3 +18,5 @@ const tablePadding = EdgeInsets.only(
   left: 8,
   right: 8,
 );
+
+const textCenter = TextAlign.center;
